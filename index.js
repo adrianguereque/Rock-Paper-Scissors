@@ -8,19 +8,44 @@ function getComputerChoice(){
             return "Scissors";
     }
 }
-let computerSelection = getComputerChoice();
-console.log(computerSelection);
-let playerSelection = prompt("Rock, Paper or Scissors?");
-console.log(playerSelection);
+
 function playRound(playerSelection, computerSelection){
+    console.log(playerSelection, computerSelection);
     if((playerSelection=="Scissors" && computerSelection=="Paper") || (playerSelection=="Paper" && computerSelection=="Rock") || (playerSelection == "Rock" && computerSelection == "Scissors")){
-        alert("You win!");
+        return 1;
     }
     else if(playerSelection==computerSelection){
-        alert("Tie!");
+        return 0;
     }
     else{
-        alert("You lose :(");
+        return -1;
     }
 }
-playRound(playerSelection, computerSelection);
+let count = 0;
+const Rockbtn = document.querySelector('#rock');
+Rockbtn.addEventListener('click', () => {
+  count = count + playRound("Rock", getComputerChoice());
+  console.log(count);
+  checkScore();
+});
+const Paperbtn = document.querySelector('#paper');
+Paperbtn.addEventListener('click', () => {
+  count = count + playRound("Paper", getComputerChoice());
+  console.log(count);
+  checkScore();
+});
+const Scissorsbtn = document.querySelector('#scissors');
+Scissorsbtn.addEventListener('click', () => {
+  count = count + playRound("Scissors", getComputerChoice());
+  console.log(count);
+  checkScore();
+});
+function checkScore(){
+    if(count==3){
+        console.log("You win");
+    }
+    if(count==-3){
+        console.log("You lose");
+    }
+}
+
