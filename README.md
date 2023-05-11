@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors
-The game
+The Game
