@@ -13,6 +13,12 @@ gameScreen.style.display = "initial";
 //counts
 computerCount = 0;
 playerCount = 0;
+// win counters
+const computerScore = document.querySelector('#computerScore');
+const playerScore = document.querySelector('#playerScore');
+// initial values
+computerScore.textContent = computerCount;
+playerScore.textContent = playerCount;
 // How many wins required for winning
 winsToEnd = 5;
 // Result div for text content
@@ -49,16 +55,19 @@ function playRound(playerSelection, computerSelection){
 Rockbtn.addEventListener('click', () => {
   playRound("Rock", getComputerChoice());
   checkScore();
+  updateCounters();
 });
 
 Paperbtn.addEventListener('click', () => {
   playRound("Paper", getComputerChoice());
   checkScore();
+  updateCounters();
 });
 
 Scissorsbtn.addEventListener('click', () => {
   playRound("Scissors", getComputerChoice());
   checkScore();
+  updateCounters();
 });
 
 function checkScore(){ //checks whether someone has won (or lost)
@@ -74,6 +83,10 @@ function checkScore(){ //checks whether someone has won (or lost)
         toggleResult();
     }
 }
+function updateCounters(){
+    computerScore.textContent = computerCount;
+    playerScore.textContent = playerCount;
+}
 
 function toggleResult () {
     gameScreen.style.display = "none";
@@ -85,4 +98,5 @@ restartBtn.addEventListener('click', () => {
     playerCount = 0;
     gameScreen.style.display = "initial";
     endScreen.style.display = "none";
+    updateCounters();
 })
