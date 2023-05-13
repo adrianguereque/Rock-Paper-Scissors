@@ -10,30 +10,33 @@
 <body>
     <div id="gameScreen">
         <div class="title">Rock, Paper, Scissors!</div>
+        <p class="desc">(Best to five)</p>
         <div class="scores">
             <div class="player">Your score
                 <p id="playerScore"></p>
+                <div class="playerOptions">
+                    <button class="rock">Rock</button>
+                    <button class="paper">Paper</button>
+                    <button class="scissors">Scissors</button>
+                </div>
             </div>
             <div class="computer">Computer score
                 <p id="computerScore"></p>
+                <div class="computerOptions">
+                    <button class="Crock">Rock</button>
+                    <button class="Cpaper">Paper</button>
+                    <button class="Cscissors">Scissors</button>
+                </div>
             </div>
         </div>
-        <div class="options">
-            <div class="playerOptions">
-                <button class="rock">Rock</button>
-                <button class="paper">Paper</button>
-                <button class="scissors">Scissors</button>
-            </div>
-            <div class="ComputerOptions">
-                <button class="Crock">Rock</button>
-                <button class="Cpaper">Paper</button>
-                <button class="Cscissors">Scissors</button>
-            </div>
-        </div>
+       
     </div>
     <div id="endScreen">
         <div class="winLose">You win!</div>
-        <button id="restart">Play again?</button>
+        <div>
+            <button id="restart">Play again?</button>
+        </div>
+    
     </div>
 
     <script type="text/javascript" src="index.js"></script>
