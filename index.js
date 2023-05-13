@@ -1,8 +1,11 @@
 // Variables --------------------------------------
 // buttons
-const Rockbtn = document.querySelector('#rock'); 
-const Paperbtn = document.querySelector('#paper');
-const Scissorsbtn = document.querySelector('#scissors');
+const Rockbtn = document.querySelector('.rock'); 
+const Paperbtn = document.querySelector('.paper');
+const Scissorsbtn = document.querySelector('.scissors');
+const CRockbtn = document.querySelector('.Crock'); 
+const CPaperbtn = document.querySelector('.Cpaper');
+const CScissorsbtn = document.querySelector('.Cscissors');
 const restartBtn = document.querySelector('#restart');
 // screens
 const gameScreen = document.querySelector('#gameScreen');
@@ -49,27 +52,62 @@ function playRound(playerSelection, computerSelection){
         computerCount += 1;
         console.log(playerCount , computerCount);
     }
+    
+
 }
 
 // Game count and events 
 Rockbtn.addEventListener('click', () => {
-  playRound("Rock", getComputerChoice());
+  let computerChoice = getComputerChoice();
+  playRound("Rock", computerChoice);
   checkScore();
   updateCounters();
+  clearChosen();
+  computerButtonAnim(computerChoice);
+  Rockbtn.classList.add('chosen');
 });
 
 Paperbtn.addEventListener('click', () => {
-  playRound("Paper", getComputerChoice());
+    let computerChoice = getComputerChoice();
+  playRound("Paper", computerChoice);
   checkScore();
   updateCounters();
+  clearChosen();
+  computerButtonAnim(computerChoice);
+  Paperbtn.classList.add('chosen');
 });
 
 Scissorsbtn.addEventListener('click', () => {
-  playRound("Scissors", getComputerChoice());
+    let computerChoice = getComputerChoice();
+
+  playRound("Scissors", computerChoice);
   checkScore();
   updateCounters();
+  clearChosen();
+  computerButtonAnim(computerChoice);
+  Scissorsbtn.classList.add('chosen');
 });
 
+function clearChosen(){
+    Scissorsbtn.classList.remove('chosen');
+    Paperbtn.classList.remove('chosen');
+    Rockbtn.classList.remove('chosen');
+    CRockbtn.classList.remove('chosen');
+    CPaperbtn.classList.remove('chosen');
+    CScissorsbtn.classList.remove('chosen');
+}
+
+function computerButtonAnim(computerChoice){
+    if(computerChoice=="Rock"){
+        CRockbtn.classList.add('chosen');
+    }
+    else if(computerChoice=="Paper"){
+        CPaperbtn.classList.add('chosen');
+    }
+    else{
+        CScissorsbtn.classList.add('chosen');
+    }
+}
 function checkScore(){ //checks whether someone has won (or lost)
     if(computerCount == winsToEnd || playerCount == winsToEnd){
         if(playerCount == winsToEnd){
@@ -99,4 +137,5 @@ restartBtn.addEventListener('click', () => {
     gameScreen.style.display = "initial";
     endScreen.style.display = "none";
     updateCounters();
+    clearChosen();
 })
