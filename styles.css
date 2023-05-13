@@ -1,48 +1,60 @@
-
-
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: rgba(49, 11, 67, 0.533);
     color: beige;
 }
 
 #gameScreen {
     display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
 .title{
     text-align: center;
     font-size: 40px;
 }
+.desc{
+    text-align: center;
+    font-size: 16px;
+}
+
 .scores{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
-    font-size: 30px;
+    font-size: 50px;
     margin-top: 100px;
     margin-bottom: 100px;
+    text-align: center;
 }
+
 
 .options{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 150px;
 }
+
+.playerOptions,.computerOptions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
 button{
-    border: none;
+    border-radius: 0.5em;
+    border-color: rgba(31, 2, 45, 0.533);;
     padding: 15px 32px;
     text-align: center;
+    background-color: beige;
+    transition: all .07s ease;
+}
+button:hover{
+    background-color: #fff3c8;
 }
 
 #endScreen{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+    flex-direction: column;
+    text-align: center;
 }
 
 .winLose{
@@ -51,13 +63,12 @@ button{
     margin: 100px 100px;
 }
 
-.restart{
-display: block; 
+#restart{
+    font-size: 24px;
 }
 
 .chosen {
     transform: scale(1.1);
-    border-color: #ffc600;
-    box-shadow: 0 0 1rem #ffc600;
-    background-color: #ffc600;
+    border-color: #ffe174;
+    box-shadow: 0 0 1rem #ffe174;
   }
