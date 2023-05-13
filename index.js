@@ -138,4 +138,5 @@ restartBtn.addEventListener('click', () => {
     endScreen.style.display = "none";
     updateCounters();
     clearChosen();
-})
+});
+
